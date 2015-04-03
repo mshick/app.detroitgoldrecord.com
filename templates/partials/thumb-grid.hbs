@@ -1,0 +1,89 @@
+{{#each list.items}}
+  <div class="col-lg-3 col-sm-4 col-xs-5 thumb-grid">
+    <div  class="thumbnail thumb-grid-item"
+          data-id="{{id}}"
+          data-approved="{{approved}}"
+          data-pending="{{pending}}"
+          data-explicit="{{explicit}}"
+          data-thumbnail-url="{{thumbnailUrl}}"
+          data-video-low-url="{{videoLowUrl}}">
+
+      <div class="content">
+        <div class="video-play">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause"></span>
+        </div>
+        <div class="expand">
+          <span class="glyphicon glyphicon-resize-full"></span>
+        </div>
+        {{#if videoUrl}}
+          <video  poster="{{{thumbnailUrl}}}"
+                  loop="true"
+                  class="img-responsive"
+                  height="{{thumbnailDimensions.height}}"
+                  width="{{thumbnailDimensions.width}}">
+            <source src="{{{videoLowUrl}}}" type="video/mp4">
+          </video>
+        {{else}}
+          <img src="{{imageUrl}}" class="img-responsive" width="{{imageDimensions.width}}" height="{{imageDimensions.height}}">
+        {{/if}}
+
+      </div>
+      <div class="caption">
+        <div class="media">
+          <a class="pull-left" href="{{{providerUserUrl}}}">
+            <img class="media-object" src="{{avatarUrl}}" height="50" width="50" />
+          </a>
+          <div class="media-body">
+            <h6 class="media-heading">
+              {{link providerUsername providerUserUrl}} from {{provider-icon provider}} {{is-explicit explicit}}
+            </h6>
+            {{#if location}}<small>{{location}}</small>{{/if}}
+          </div>
+        </div>
+        <p>{{truncate description 140}}</p>
+        <div class="buttons">
+          <a href="#" class="reject btn btn-sm" role="button">Reject</a>
+          <a href="#" class="approve btn btn-sm" role="button">Approve</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+
+{{#raw}}
+<script>
+window.modalTemplate = '\
+  <% if (videoUrl) { %> \
+  <video  poster="<%= thumbnailUrl %>"\
+          loop="true"\
+          class="img-responsive"\
+    <source src="<%= videoLowUrl %>" type="video/mp4">\
+  </video>\
+  <% } else { %>\
+    <img src="<%= imageUrl %>" class="img-responsive" />\
+  <% } %>\
+  <div class="caption">\
+    <div class="media">\
+      <a class="pull-left" href="<%= providerUserUrl %>">\
+        <img class="media-object" src="<%= avatarUrl %>" height="75" width="75" />\
+      </a>\
+      <div class="media-body">\
+        <h6 class="media-heading">\
+          <% if (providerUserUrl) { %> <a href="<%= providerUserUrl %>"><%= providerUsername %></a>\
+          <% } else { %><%= providerUsername %><% } %>\
+          from <%= provider %>\
+        </h6>\
+        <% if (location) { %><small><%= location %></small><% } %>\
+      </div>\
+    </div>\
+    <p><%= description %></p>\
+    <p><a href="<%= providerPermalinkUrl %>" target="_new"><%= providerPermalinkUrl %></a></p>\
+    <div class="buttons">\
+      <a href="#" class="reject btn btn-sm" role="button">Reject</a>\
+      <a href="#" class="approve btn btn-sm" role="button">Approve</a>\
+    </div>\
+  </div>';
+</script>
+{{/raw}}

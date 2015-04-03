@@ -1,0 +1,20 @@
+#!/bin/sh
+PATH=$PATH:/home/ec2-user/.nvm/v0.11.13/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/bin
+GIT_WORK_TREE=/opt/walkthewalk-api
+export PATH
+export GIT_WORK_TREE
+
+echo "Cleaning project..."
+
+git clean -fd
+echo "Loading changes..."
+
+git checkout --force
+echo "Installing node modules..."
+
+cd $GIT_WORK_TREE
+npm install --production --loglevel silent
+echo "Reloading server..."
+
+pm2 gracefulReload web --mini-list
+echo "Done!"

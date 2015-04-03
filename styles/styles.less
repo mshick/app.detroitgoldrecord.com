@@ -1,0 +1,153 @@
+body {
+    padding-top: 88px;
+}
+
+#dashboard {
+    .big {
+        p {
+            font-size: @font-size-large;
+        }
+    }
+}
+
+#modal-template {
+    display: none;
+}
+
+.modal-content {
+    width: 680px;
+    video {
+        width: 640px;
+        height: 640px;
+    }
+    .caption {
+        box-sizing: content-box;
+        padding-bottom: 40px;
+    }
+}
+
+
+.thumbnail, .modal-content {
+    .caption {
+        font-size: 0.8em;
+        height: 200px;
+        position: relative;
+    }
+    .media {
+        margin-bottom: 11px;
+    }
+
+    .buttons {
+        bottom: 0;
+        height: 33px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    .btn.reject {
+        left: 0;
+        position: absolute;
+        background-color: @gray-dark;
+        color: @gray-lighter;
+
+        &:hover {
+            background-color: @gray-darker;
+            color: @gray-light;
+        }
+    }
+
+    .btn.approve {
+        position: absolute;
+        right: 0;
+        background-color: @brand-success;
+        color: #fff;
+        &:hover {
+            background-color: darken(@brand-success, 10%);
+        }
+    }
+
+    .glyphicon-warning-sign {
+        color: @brand-danger;
+    }
+
+    .status-icons {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .glyphicon {
+            font-size: 3em;
+            display: none;
+        }
+    }
+
+    .video-play {
+        display: block;
+        font-size: 4em;
+        height: 100%;
+        position: absolute;
+        visibility: hidden;
+        width: 100%;
+        z-index: 100;
+
+        .glyphicon {
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+            visibility: visible;
+        }
+    }
+
+    .expand {
+        display: none;
+        font-size: 1.5em;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        z-index: 101;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .content {
+        position: relative;
+        &:hover {
+            .video-play {
+                visibility: visible;
+            }
+            .expand {
+                display: block;
+            }
+        }
+    }
+
+    .glyphicon-play {
+        display: inline-block;
+    }
+    .glyphicon-pause {
+        display: none;
+    }
+
+    &.playing {
+        .glyphicon-play {
+            display: none;
+        }
+        .glyphicon-pause {
+            display: inline-block;
+        }
+    }
+
+    &.approved {
+        background: lighten(@brand-success, 40%);
+    }
+    &.rejected {
+        background: @gray-light;
+    }
+}

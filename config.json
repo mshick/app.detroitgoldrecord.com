@@ -1,0 +1,174 @@
+{
+    "development": {
+        "identity": {
+            "siteName": "Detroit Gold Record"
+        },
+        "auth": {
+            "secret": "",
+            "domain": "app.detroitgoldrecord.com"
+        },
+        "database": {
+            "engine": "mongo",
+            "options": {
+                "dbname": "dgr",
+                "port": 27017,
+                "host": "127.0.0.1"
+            }
+        },
+        "multilevel": {
+            "manifest": "./database/manifest.json",
+            "host": "127.0.0.1",
+            "port": 3000,
+            "sublevels": {
+                "page": true,
+                "video": true,
+                "cache": true,
+                "setting": true,
+                "harvest": true
+            }
+        },
+        "server": {
+            "host": "localhost",
+            "port": 8000,
+            "options": {
+                "cors": true
+            }
+        },
+        "cache": {
+            "default": {
+                "engine": "catbox-memory"
+            }
+        },
+        "users": {
+            "api": {
+                "username": "api",
+                "hash": "",
+                "name": "API User"
+            },
+            "user": {
+                "username": "user",
+                "hash": "",
+                "name": "DGR Admin"
+            }
+        },
+        "static": {
+            "path": "./static"
+        },
+        "log": {
+            "path": false
+        },
+        "harvest": {
+            "auth": {
+                "username": "api",
+                "password": ""
+            },
+            "host": "localhost:8000",
+            "delay": 5000,
+            "interval": 60000,
+            "min": 5,
+            "verbose": true,
+            "providers": {
+                "instagram": {
+                    "clientId": ""
+                },
+                "vine": false
+            },
+            "db": {
+                "host": "127.0.0.1",
+                "port": 3000,
+                "manifest": "./database/manifest.json"
+            }
+        }
+    },
+    "production": {
+        "identity": {
+            "siteName": "Detroit Gold Record"
+        },
+        "auth": {
+            "secret": "",
+            "domain": "app.detroitgoldrecord.com"
+        },
+        "database": {
+            "engine": "mongo",
+            "options": {
+                "dbname": "dgr",
+                "port": 27017,
+                "host": "127.0.0.1"
+            }
+        },
+        "multilevel": {
+            "data": "/media/ebs/leveldb",
+            "manifest": "./database/manifest.json",
+            "host": "127.0.0.1",
+            "port": 3000,
+            "sublevels": {
+                "cache": true
+            }
+        },
+        "server": {
+            "host": "0.0.0.0",
+            "port": 8000,
+            "options": {
+                "cors": {
+                    "origin": [
+                        "http://www.detroitgoldrecord.com",
+                        "http://localhost:8000",
+                        "http://localhost:8080",
+                        "http://localhost:8001"
+                    ]
+                }
+            }
+        },
+        "cache": {
+            "default": {
+                "engine": "catbox-redis",
+                "options": {
+                    "host": "127.0.0.1",
+                    "port": 6379
+                },
+                "expiresIn": 604800000,
+                "staleIn": 300000
+            }
+        },
+        "users": {
+            "api": {
+                "username": "api",
+                "hash": "",
+                "name": "API User"
+            },
+            "user": {
+                "username": "user",
+                "hash": "",
+                "name": "DGR Admin"
+            }
+        },
+        "static": {
+            "path": "./static"
+        },
+        "log": {
+            "path": false
+        },
+        "harvest": {
+            "auth": {
+                "username": "api",
+                "password": ""
+            },
+            "host": "localhost:8000",
+            "delay": 5000,
+            "interval": 300000,
+            "min": 50,
+            "verbose": false,
+            "providers": {
+                "instagram": {
+                    "clientId": ""
+                },
+                "vine": false
+            },
+            "db": {
+                "host": "127.0.0.1",
+                "port": 3000,
+                "manifest": "./database/manifest.json"
+            }
+        }
+    }
+}

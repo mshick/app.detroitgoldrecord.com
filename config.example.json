@@ -1,0 +1,49 @@
+{
+    "env": "development",
+    "identity": {
+        "siteName": "#WalkTheWalk"
+    },
+    "auth": {
+        "secret": "foobar"
+    },
+    "multilevel": {
+        "path": "./data",
+        "manifest": "./db/manifest.json",
+        "host": "127.0.0.1",
+        "port": 3000,
+        "sublevels": {
+            "page": true,
+            "video": true,
+            "cache": true
+        }
+    },
+    "server": {
+        "host": "localhost",
+        "port": 8000,
+        "options": {
+            "cors": true
+        }
+    },
+    "cache": {
+        "default": {
+            "engine": "catbox-multilevel",
+            "manifest": "./db/manifest.json",
+            "host": "127.0.0.1",
+            "port": 3000,
+            "sublevel": "cache"
+        }
+    },
+    "users": {
+        "admin": {
+            "username": "admin",
+            "password": "$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm",
+            "name": "Administrator"
+        }
+    },
+    "static": {
+        "path": "./static"
+    },
+    "log": {
+        "path": false
+    }
+}

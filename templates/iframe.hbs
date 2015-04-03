@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Items Tagged: {{ tag }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/iframe.css" rel="stylesheet">
+</head>
+<body>
+    <div class="grid">
+      {{#each list.items}}
+      {{#if isShown}}
+      <div class="grid-item">
+        <figure>
+          {{#if videoUrl}}<div class="video-play"><span clas="icon">&#9654;</span></div>{{/if}}
+          <img src="{{thumbnailUrl}}" height="{{thumbnailDimensions.height}}" width="{{thumbnailDimensions.width}}">
+        </figure>
+        <div class="detail">
+          <figure>
+            {{#if videoUrl}}
+              <video src="{{videoUrl}}" poster="{{{thumbnailUrl}}}" width="{{videoDimensions.width}}" height="{{videoDimensions.height}}"  preload controls></video>
+            {{else}}
+              <img src="{{imageUrl}}" width="{{imageDimensions.width}}" height="{{imageDimensions.height}}">
+            {{/if}}
+            <figcaption class="container">
+              <a class="user row" href="{{providerUserUrl}}" target="_blank">
+                <img class="useravatar one-third column" src="{{avatarUrl}}">
+                <span class="username two-thirds-column">{{providerUsername}}</span>
+              </a>
+
+              <hr />
+
+              <div class="description row">
+                <p>{{description}}</p>
+              </div>
+
+              <div class="row permalink">
+                <a href="{{providerPermalinkUrl}}" target="_blank">View on Instagram</a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div id="dialog"><div class="close">&times;</div><div class="content"></div></div>
+    <script src="/js/iframe.js"></script>
+</body>
+</html>
+

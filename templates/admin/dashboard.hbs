@@ -1,0 +1,14 @@
+{{> nav }}
+
+<div id="dashboard" class="container">
+  <div class="row big">
+    <p>There are currently <mark>{{totalCount}}</mark> videos.</p>
+    <p><mark>{{approvedCount}}</mark> have been approved. <mark>{{pendingCount}}</mark> are pending moderation. <mark>{{rejectedCount}}</mark> have been rejected.</p>
+    <p>Videos were last harvested from <span class="text-capitalize">{{harvest.provider}}<span> at <mark>{{date-format harvest.createdAt format="h:mm a z"}}</mark>.</p>
+    <p>Here are some of the latest awaiting moderation:</p>
+  </div>
+
+  <div class="row">
+    {{> thumb-grid}}
+  </div>
+</div>

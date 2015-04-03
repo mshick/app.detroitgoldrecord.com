@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 center-block" style="float:none;">
+      <form class="form-signin" role="form" action="/login" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        {{#if error}}
+          <div class="alert alert-danger">Sign in error: {{{ error}}}</div>
+        {{/if}}
+        <div class="form-group">
+          <input type="text" name="username" class="form-control" placeholder="Email or Username" required autofocus>
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>

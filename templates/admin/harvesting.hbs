@@ -1,0 +1,43 @@
+{{> nav }}
+
+<div id="content" class="container harvesting">
+  <div class="row">
+    <form>
+      <div id="harvest-tags" data-key="tags" class="form-group">
+        <label class="control-label">Harvest Tags (comma-separated)</label>
+        <textarea type="text" class="form-control setting" rows="3" >{{settings.tags}}</textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>When</th>
+          <th>Duration</th>
+          <th>Tag Name</th>
+          <th>Provider</th>
+          <th>Seen</th>
+          <th>Written</th>
+          <th>Errors</th>
+          <th>Retries</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each harvests}}
+          <tr>
+            <td>{{date-format createdAt format="h:mm a z"}}</td>
+            <td>{{elapsed}}ms</td>
+            <td>{{tag}}</td>
+            <td>{{provider}}</td>
+            <td>{{seen}}</td>
+            <td>{{written}}</td>
+            <td>{{error}}</td>
+            <td>{{retries}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
