@@ -7,7 +7,7 @@ Requirements:
 
 Start your development with:
 
-`git clone git@github.com:ronik-design/walkthewalk-api.git`
+`git clone git@github.com:mshick/app.detroitgoldrecord.com.git`
 
 `cd walkthewalk-api`
 
