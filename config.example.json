@@ -1,7 +1,7 @@
 {
     "env": "development",
     "identity": {
-        "siteName": "#WalkTheWalk"
+        "siteName": "Detroit Gold Record"
     },
     "auth": {
         "secret": "foobar"
@@ -36,7 +36,7 @@
     "users": {
         "admin": {
             "username": "admin",
-            "password": "$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm",
+            "password": "",
             "name": "Administrator"
         }
     },
