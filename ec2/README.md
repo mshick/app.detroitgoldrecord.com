@@ -1,4 +1,4 @@
-SET UP WTW:
+SET UP DGR:
 # m3.large Amazon Linux AMI / 40gb SSD EBS
 
 # SSH
@@ -65,8 +65,8 @@ sudo pm2 startup centos
 cat ~/.ssh/id_rsa.pub | ssh -i ~/.ssh/foo@bar.com "cat>> .ssh/authorized_keys”
 
 # Add remote (from local machine)
-git remote add ec2.wlk ec2-user@bar.com:dgr-api.git
-git push ec2.wlk
+git remote add ec2.dgr ec2-user@bar.com:dgr-api.git
+git push ec2.dgr
 
 # Start processes (remote)
 cd /opt/dgr-api
