@@ -1,5 +1,5 @@
-walkthewalk-api
-===============
+detroitgoldrecord
+=================
 
 Requirements:
 
