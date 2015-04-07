@@ -48,7 +48,7 @@
         "users": {
             "api": {
                 "username": "api",
-                "hash": "",
+                "hash": "$2a$12$8Xlfavg2PE3u9ambpkV6fuOh5X3ZxZKT56UqRmDTfQIWYb1hdJzEq",
                 "name": "API User"
             },
             "user": {
@@ -66,7 +66,7 @@
         "harvest": {
             "auth": {
                 "username": "api",
-                "password": ""
+                "password": "mRXtw5eMydMmfaPw"
             },
             "host": "localhost:8000",
             "delay": 5000,
