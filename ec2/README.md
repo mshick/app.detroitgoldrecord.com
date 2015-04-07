@@ -1,8 +1,8 @@
-SET UP WTW:
+SET UP DGR:
 # m3.large Amazon Linux AMI / 40gb SSD EBS
 
 # SSH
-ssh -i ~/.ssh/ronik@wlk.andth.us
+ssh -i ~/.ssh/foo@bar.com
 
 # Set up file system
 sudo yum update
@@ -14,21 +14,21 @@ sudo mount /dev/xvdb /media/ebs
 sudo cat '/dev/xvdb   /media/ebs  xfs     defaults,nofail   0   2’ >> /etc/fstab
 
 # Set up app dirs
-sudo mkdir /opt/walkthewalk-api
-sudo mkdir /var/opt/walkthewalk-api
+sudo mkdir /opt/dgr-api
+sudo mkdir /var/opt/dgr-api
 sudo mkdir /var/opt/log
-sudo mkdir /var/opt/log/walkthewalk-api
-sudo chown -R ec2-user:wheel /opt/walkthewalk-api/
-sudo chown -R ec2-user:wheel /var/opt/walkthewalk-api/
-sudo chown -R ec2-user:wheel /var/opt/log/walkthewalk-api/
+sudo mkdir /var/opt/log/dgr-api
+sudo chown -R ec2-user:wheel /opt/dgr-api/
+sudo chown -R ec2-user:wheel /var/opt/dgr-api/
+sudo chown -R ec2-user:wheel /var/opt/log/dgr-api/
 
 # Set up git repo and hook
 sudo yum install -y git
-mkdir ~/walkthewalk-api.git
-cd ~/walkthewalk-api.git
+mkdir ~/dgr-api.git
+cd ~/dgr-api.git
 git init --bare
 
-## Install ./hooks/post-receive -> ~/walkthewalk-api.git/hooks/post-receive
+## Install ./hooks/post-receive -> ~/dgr-api.git/hooks/post-receive
 
 # Set up mongo
 (4real) http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/
@@ -62,14 +62,14 @@ sudo npm install pm2 -g --unsafe-perm
 sudo pm2 startup centos
 
 # Copy your ssh key for git updates (from local machine)
-cat ~/.ssh/id_rsa.pub | ssh -i ~/.ssh/ronik@wlk.andth.us "cat>> .ssh/authorized_keys”
+cat ~/.ssh/id_rsa.pub | ssh -i ~/.ssh/foo@bar.com "cat>> .ssh/authorized_keys”
 
 # Add remote (from local machine)
-git remote add ec2.wlk ec2-user@wlk.anth.us:walkthewalk-api.git
-git push ec2.wlk
+git remote add ec2.dgr ec2-user@bar.com:dgr-api.git
+git push ec2.dgr
 
 # Start processes (remote)
-cd /opt/walkthewalk-api
+cd /opt/dgr-api
 pm2 start processes.json
 pm2 save
 

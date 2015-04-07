@@ -4,9 +4,9 @@
         "script": "./web.js",
         "instances": 1,
         "log_date_format": "YYYY-MM-DD",
-        "error_file": "/var/opt/log/walkthewalk-api/web-err.log",
-        "out_file": "/var/opt/log/walkthewalk-api/web-out.log",
-        "pid_file": "/var/opt/walkthewalk-api/pids/web.pid",
+        "error_file": "/var/opt/log/dgr-api/web-err.log",
+        "out_file": "/var/opt/log/dgr-api/web-out.log",
+        "pid_file": "/var/opt/dgr-api/pids/web.pid",
         "exec_mode": "cluster_mode",
         "merge_logs": true,
         "env": {
@@ -18,9 +18,9 @@
         "script": "./harvest.js",
         "instances": 1,
         "log_date_format": "YYYY-MM-DD",
-        "error_file": "/var/opt/log/walkthewalk-api/harvest-err.log",
-        "out_file": "/var/opt/log/walkthewalk-api/harvest-out.log",
-        "pid_file": "/var/opt/walkthewalk-api/pids/harvest.pid",
+        "error_file": "/var/opt/log/dgr-api/harvest-err.log",
+        "out_file": "/var/opt/log/dgr-api/harvest-out.log",
+        "pid_file": "/var/opt/dgr-api/pids/harvest.pid",
         "exec_mode": "fork_mode",
         "env": {
             "NODE_ENV": "production"
