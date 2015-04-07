@@ -13,7 +13,7 @@ opts = {
 };
 
 opts.scripts = [];
-opts.scripts.push('node db.js');
+// opts.scripts.push('node db.js');
 
 if (argv.dev) {
     opts.scripts.push('./node_modules/.bin/nodemon web.js');

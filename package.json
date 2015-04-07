@@ -41,6 +41,7 @@
     "moment": "^2.8.3",
     "moment-timezone": "^0.2.2",
     "mongodb": "^1.4.10",
+    "prompt": "^0.2.14",
     "through": "^2.3.4",
     "uslug": "^1.0.3",
     "utilities": "^1.0.4",
@@ -78,7 +79,6 @@
     "reconnect-net": "0.0.0",
     "nodemon": "^1.2.1",
     "normalize.css": "^3.0.2",
-    "sync-prompt": "^0.4.1",
     "vinyl-buffer": "0.0.0",
     "vinyl-source-stream": "^0.1.1"
   }

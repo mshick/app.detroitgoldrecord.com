@@ -36,7 +36,13 @@
         },
         "cache": {
             "default": {
-                "engine": "catbox-memory"
+                "engine": "catbox-redis",
+                "options": {
+                    "host": "127.0.0.1",
+                    "port": 6379
+                },
+                "expiresIn": 604800000,
+                "staleIn": 300000
             }
         },
         "users": {
